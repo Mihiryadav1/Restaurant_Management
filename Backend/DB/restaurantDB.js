@@ -4,11 +4,12 @@ import seedChefs from "../seed/seedChef.js";
 
 const connectDB = async () => {
   mongoose
-    .connect("mongodb://localhost:27017/restaurant")
+    .connect(process.env.MONGO_URL)
     .then(async () => {
+      console.log('Connection Successfull!')
       await seedMenu();
       await seedChefs();
-      console.log("MongoDB connected");
+      console.log("Data Seeded Successfully");
     })
     .catch((err) => console.log(err));
 };
