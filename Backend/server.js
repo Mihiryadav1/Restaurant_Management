@@ -1,8 +1,6 @@
 import express from "express";
 import connectDB from "./DB/restaurantDB.js";
 import { configDotenv } from "dotenv";
-import path from "path";
-import cron from "node-cron";
 import cors from "cors";
 import {
   autoCompleteOrders,

@@ -157,28 +157,43 @@ export const getOrders = async (req, res) => {
 
 // Get Menu Items for menu display
 export const getMenuItems = async (req, res) => {
-  const { category, search, limit = 6, offSet } = req.query;
+  const { category, search, limit , offSet = 0 } = req.query;
+  console.log("Incoming query params:", req.query);
 
+  // Build query only if params are actually provided
   const query = {};
-  if (category) query.category = category;
-  if (search) query.name = { $regex: search, $options: "i" };
+
+  if (category && category.trim() !== "") {
+    query.category = category.trim();
+  }
+
+  if (search && search.trim() !== "") {
+    query.name = { $regex: search.trim(), $options: "i" };
+  }
 
   try {
+    // Fetch menu items (filtered or all)
     const items = await Menu.find(query)
       .skip(Number(offSet))
       .limit(Number(limit));
+
+    // Count total items for pagination
     const total = await Menu.countDocuments(query);
+
     res.status(200).json({
       message: "Menu Fetched Successfully",
       hasMore: Number(offSet) + items.length < total,
       items,
     });
   } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Failed to fetch menu", error: err.message });
+    res.status(500).json({
+      message: "Failed to fetch menu",
+      error: err.message,
+    });
   }
 };
+
+ 
 
 //Get order summary
 export const getOrderSummary = async (req, res) => {
