@@ -58,6 +58,7 @@ const orderSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  processingTime: Number,
 
   cookingInstructions: String,
   status: {

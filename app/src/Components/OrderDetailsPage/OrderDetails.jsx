@@ -24,6 +24,7 @@ const OrderDetails = () => {
     const [orderType, setOrderType] = useState("takeaway");
     const [instructions, setInstructions] = useState("");
     const [showModal, setShowModal] = useState(false);
+    const [deliveryTime, setDeliveryTime] = useState(10);
 
     const itemTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const deliveryCharge = orderType === "dine-in" ? 0 : 50;
@@ -58,7 +59,10 @@ const OrderDetails = () => {
         try {
             const res = await axios.post(`${import.meta.env.VITE_LOCAL_URL}/api/orders`, payload);
             console.log("Order placed:", res);
-            navigate('/confirmation');
+            setDeliveryTime(prev => prev + res.data.order.processingTime)
+            setTimeout(() => {
+                navigate('/confirmation');
+            }, 2000);
             dispatch(clearCart())
             console.log(cart, 'Cleared')
         } catch (err) {
@@ -149,7 +153,11 @@ const OrderDetails = () => {
                     <p>{userDetails.name}{" "}</p>
                     <p>Contact- {userDetails.contact}</p>
                     {orderType === 'takeaway' && (
-                        <p> <span className={styles["icon"]}><FaMapMarkerAlt /></span> Delivery at Home - {userDetails.address}</p>)
+                        <>
+                            <p> <span className={styles["icon"]}><FaMapMarkerAlt /></span> Delivery at Home - {userDetails.address}</p>
+                            <p> <span className={styles["icon"]}><FaMapMarkerAlt /></span> Time - {deliveryTime} min</p>
+                        </>
+                    )
                     }
 
                 </div>

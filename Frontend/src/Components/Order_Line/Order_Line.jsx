@@ -18,8 +18,10 @@ const Order_Line = () => {
   // Fetch all orders
   const getAllOrders = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/orders`);
-      setOrderCard(data.orders);
+      const { data } = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
+        console.log(res.data, 'res')
+        setOrderCard(res.data.orders);
+      });
     } catch (err) {
       console.error('Failed to fetch orders', err);
     }
@@ -93,11 +95,14 @@ const Order_Line = () => {
             className={`${styles['orderCard']} ${styles[effectiveStatus]} ${order.type === "takeaway" ? styles['takeaway'] : ""}`}
           >
             <h3>#{order.orderId}</h3>
-            <p>
-              <p className={styles["wrapper"]}>
+            <div>
+              <div className={styles["wrapper"]}>
                 <strong>Table:</strong> {order.tableNumber || '—'}
                 <p>
                   <strong>Type:</strong> {order.type}
+                </p>
+                <p>
+                  <strong>Processing Time:</strong> {order.processingTime} min
                 </p>
                 <b>Order List</b>
                 <ul className={styles['itemList']}>
@@ -112,8 +117,8 @@ const Order_Line = () => {
                     );
                   })}
                 </ul>
-              </p>
-            </p>
+              </div>
+            </div>
             <div className={styles["wrapper"]}>
               <p style={{ color: effectiveStatus === "done" ? "green" : "orange" }}>
                 <strong>Status:</strong> {effectiveStatus}

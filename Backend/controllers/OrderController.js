@@ -92,6 +92,7 @@ export const createOrder = async (req, res) => {
       totalPrice,
       cookingInstructions,
       processingEndsAt,
+      processingTime: totalPreparationTime,
       status: "processing",
       createdAt: new Date(),
     });
@@ -137,7 +138,16 @@ export const getOrders = async (req, res) => {
   }
   try {
     const orders = await Order.find(query).sort({ processingEndsAt: 1 });
-    res.status(200).json({ orders });
+
+    const enrichedOrders = orders.map((order) => {
+      const diffMs = order.processingEndsAt - order.createdAt;
+      const diffMins = diffMs / (1000 * 60);
+      return {
+        ...order.toObject(),
+        processingTime: diffMins.toFixed(2),
+      };
+    });
+    res.status(200).json({ enrichedOrders });
   } catch (err) {
     res
       .status(500)

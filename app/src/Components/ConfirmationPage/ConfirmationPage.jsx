@@ -10,7 +10,7 @@ const ConfirmationPage = () => {
             setTimeLeft(prev => {
                 if (prev <= 1) {
                     clearInterval(interval);
-                    navigate('/menuPage');
+                    navigate('/orderDetails');
                     return 0;
                 }
                 return prev - 1;
