@@ -6,7 +6,7 @@ const TableGrid = () => {
     const [tableName, setTableName] = React.useState("Table");
     const [tables, setTables] = useState([])
     const fetchTables = async () => {
-        await axios('/api/tables')
+        await axios(`${import.meta.env.VITE_LOCAL_URL}/api/tables`)
             .then(result => {
                 console.log(result.data.tables, 'result')
                 setTables(result.data.tables)
@@ -24,8 +24,8 @@ const TableGrid = () => {
                 const statusClass = table.reserved ? styles['reserved'] : styles['unreserved'];
                 return (
                     <div className={`${styles['table-block']} ${statusClass}`} key={table._id}>
-                        <strong>  Table </strong>
-                        <div>{table.name}</div>
+                        <strong>Table</strong>
+                        <div>{table.number}</div>
                     </div>
                 );
             })}

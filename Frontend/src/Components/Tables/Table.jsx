@@ -9,7 +9,7 @@ const Table = () => {
     const [showPopup, setShowPopup] = React.useState(false);
     const [tables, setTables] = useState([])
     const fetchTables = async () => {
-        const response = await fetch('/api/tables').then(res => res.json()).then(data => {
+        const response = await fetch(`${import.meta.env.VITE_LOCAL_URL}/api/tables`).then(res => res.json()).then(data => {
             // console.log(data.tables)
             setTables(data.tables)
             setTableName(data.tables.name)
@@ -22,7 +22,7 @@ const Table = () => {
                 name: tableName,
                 size: chairCount
             };
-            const response = await axios.post('/api/tables', payload);
+            const response = await axios.post(`${import.meta.env.VITE_LOCAL_URL}/api/tables`, payload);
             console.log("✅ Table created:", response.data);
 
             // Refresh table list
@@ -39,7 +39,7 @@ const Table = () => {
 
     const deleteTable = async (id) => {
         try {
-            const response = await axios.delete(`/api/tables/${id}`);
+            const response = await axios.delete(`${import.meta.env.VITE_LOCAL_URL}/api/tables/${id}`);
             fetchTables()
             // console.log("🗑️ Table deleted:", response.data);
             //Add Toast Here
@@ -78,8 +78,10 @@ const Table = () => {
                         showPopup ? (<div className={styles['popup']}>
                             <input
                                 type="text"
-                                placeholder="Table name (optional)"
+                                placeholder="Table no (optional)"
                                 value={tableName}
+                                min={1}
+                                max={30}
                                 onChange={(e) => setTableName(e.target.value)}
                             />
                             <select value={chairCount} onChange={(e) => setChairCount(Number(e.target.value))}>

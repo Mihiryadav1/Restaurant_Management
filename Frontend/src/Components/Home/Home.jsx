@@ -101,7 +101,7 @@ const Home = () => {
   // Get total Clients
   const getTotalClients = async () => {
     try {
-      await axios('/api/users').then(res => {
+      await axios(`/api/users`).then(res => {
         const users = res.data.users;
         setClientCount(users.length)
         // console.log(data,'Users')
@@ -124,7 +124,7 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    axios.get(`/api/revenueByRange?range=${range}`).then(res => {
+    axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/revenueByRange?range=${range}`).then(res => {
       const raw = res.data.revenueByRange;
       const formatted = raw.map(d => ({ x: d.label, y: d.amount }));
 

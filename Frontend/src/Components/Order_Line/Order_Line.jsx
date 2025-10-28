@@ -18,7 +18,7 @@ const Order_Line = () => {
   // Fetch all orders
   const getAllOrders = async () => {
     try {
-      const { data } = await axios.get('/api/orders');
+      const { data } = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/orders`);
       setOrderCard(data.orders);
     } catch (err) {
       console.error('Failed to fetch orders', err);
@@ -28,7 +28,7 @@ const Order_Line = () => {
   // Fetch menu items
   const getMenu = async () => {
     try {
-      const { data } = await axios.get('/api/menu');
+      const { data } = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/menu`);
       setMenuItems(data.items);
     } catch (err) {
       console.error('Failed to fetch menu', err);
@@ -55,7 +55,7 @@ const Order_Line = () => {
       try {
         await Promise.all(
           expiredOrders.map((order) =>
-            axios.patch(`/api/orders/${order._id}`, { status: 'done' })
+            axios.patch(`${import.meta.env.VITE_LOCAL_URL}/api/orders/${order._id}`, { status: 'done' })
           )
         );
 

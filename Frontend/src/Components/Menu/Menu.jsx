@@ -4,7 +4,7 @@ import axios from 'axios'
 const Menu = () => {
     const [menu, setMenu] = useState([])
     const getMenuItems = async () => {
-        await axios.get('/api/menu').then(res => {
+        await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/menu`).then(res => {
             const menuItems = res.data.items
             setMenu(menuItems)
             console.log(menuItems)
