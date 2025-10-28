@@ -195,23 +195,21 @@ const Home = () => {
           />
           <p>DineIn { }</p>
         </div>
-        <div className={styles['card']}>
-          <div
-            className={`${styles['card']} ${!filterText || "order revenue".toLowerCase().includes(filterText) ? "" : styles['blurred']}`}
-          >
-            <h3>Revenue</h3>
-            <select value={range} onChange={(e) => setRange(e.target.value)}>
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-            <LineChart
-              xAxis={[{ data: chartData.map(d => d.x), scaleType: 'point' }]}
-              series={[{ data: chartData.map(d => d.y), label: 'Revenue ₹' }]}
-              width={500}
-              height={300}
-            />
-          </div>
+        <div
+          className={`${styles['card']} ${!filterText || "order revenue".toLowerCase().includes(filterText) ? "" : styles['blurred']}`}
+        >
+          <h3>Revenue</h3>
+          <select value={range} onChange={(e) => setRange(e.target.value)}>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+          <LineChart
+            xAxis={[{ data: chartData.map(d => d.x), scaleType: 'point' }]}
+            series={[{ data: chartData.map(d => d.y), label: 'Revenue ₹' }]}
+            width={500}
+            height={300}
+          />
         </div>
         <div
           className={`${styles['card']} ${!filterText || "Tables".toLowerCase().includes(filterText) || "table".includes() ? "" : styles['blurred']}`}
