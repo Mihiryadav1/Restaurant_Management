@@ -1,0 +1,14 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 8vw auto;
+    grid-template-rows: 5vh 1fr;
+    grid-template-areas: "sidebar main"
+        "sidebar main"
+        "sidebar main";
+
+}
+
+.main {
+    grid-area: main;
+    padding: 1rem;
+}

@@ -1,0 +1,27 @@
+.grid {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.reserved {
+    background-color: green;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.unreserved {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.table-block {
+    padding: 10px;
+    min-width: 70px;
+    max-width: 70px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}

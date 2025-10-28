@@ -1,0 +1,19 @@
+.confirmPage {
+    background-color: #20BF6D;
+    
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & h2 {
+        text-align: center;
+        margin: 2rem 0;
+    }
+}
+
+.lottie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

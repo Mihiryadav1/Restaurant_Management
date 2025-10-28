@@ -1,0 +1,30 @@
+.orderCard {
+    border-radius: 10px;
+    min-height: 300px;
+    max-height: 500px;
+    max-width: 400px;
+    border: 1px solid black
+}
+
+.done {
+    background-color: #B9F8C9;
+}
+
+.takeaway {
+    background-color: #C2D4D9;
+}
+
+.processing {
+    background-color: #FFE3BC;
+}
+
+
+.order-grid {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    max-height: 95vh;
+    overflow: auto;
+    /* optional spacing between items */
+}

@@ -1,0 +1,17 @@
+.menu-container {
+    display: grid;
+    column-gap: 10px;
+    max-height: 95vh;
+    overflow-x: auto;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.menu-card {
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.menu-img {
+    max-width: 80%;
+}

@@ -1,0 +1,67 @@
+* {
+  padding: 0px 0px;
+  margin: 0px 0px;
+  font-family: Segoe UI;
+  box-sizing: border-box;
+}
+ 
+
+#root {
+  /* background-color: lightblue; */
+  border: 1px solid gray;
+  border-radius: 1rem;
+  min-width: 430px;
+  max-width: 430px;
+  min-height: 90vh;
+  max-height: 100vh;
+  box-sizing: border-box;
+}
+
+.appWrapper {
+  padding: 1.5rem;
+}
+
+html {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.incrementBtn,
+.removeBtn,
+.decrementBtn {
+  padding: 5px;
+}
+
+.count {
+  margin: 0 10px;
+}
+
+
+.flex {
+  display: flex;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.mtb-1 {
+  margin: 1rem 0;
+}
+
+.gap-1 {
+  margin: 0 5px;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

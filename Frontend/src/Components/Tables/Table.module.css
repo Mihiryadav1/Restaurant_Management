@@ -1,0 +1,39 @@
+ .table-grid {
+     /* background-color: red; */
+     display: grid;
+     row-gap: 10px;
+     column-gap: 10px;
+     grid-template-columns: repeat(7, 1fr);
+ }
+
+ .table-block {
+     padding: 1rem;
+     max-width: 120px;
+     border-radius: 0.5rem;
+     background-color: #F0F5F3;
+ }
+
+ .addTableBtn {
+     background-color: transparent;
+     padding: 1rem;
+ }
+
+
+ .popup {
+     max-width: 200px;
+     position: absolute;
+     background-color: white;
+     height: 250px;
+     border: 1px solid black;
+     border-radius: 1rem;
+
+     & input {
+         background: transparent;
+         padding: 0 1rem;
+         border-bottom: 1px solid black;
+     }
+ }
+
+ input {
+     border: 0;
+ }

@@ -1,0 +1,18 @@
+:root {
+  --white: #fff
+}
+
+* {
+  padding: 0px 0px;
+  margin: 0px 0px;
+  font-family: Segoe UI;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+}
+
+li {
+  list-style: none
+}

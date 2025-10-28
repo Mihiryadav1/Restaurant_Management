@@ -1,0 +1,177 @@
+.orderContainer {
+    max-height: 80%;
+
+}
+
+.cartItems {
+    max-height: 30vh;
+    overflow: auto;
+    margin: 1rem 0;
+
+    & img {
+        width: 40%;
+        border-radius: 1rem;
+        border: 10px solid lightgrey;
+    }
+}
+
+.item {
+    display: flex;
+    margin-bottom: 1rem;
+    /* background-color: green; */
+    gap: 1rem;
+}
+
+.ordercontrol {
+    width: 100%;
+    /* background-color: red; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.orderDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.main {
+    position: relative;
+}
+
+
+/* Dine in takeaway css */
+.deliveryAction {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #E4E4E4;
+    padding: 1rem;
+    border-radius: 40px;
+    margin: 1rem 0;
+
+    & button {
+        border-radius: 40px;
+        font-size: 1rem;
+    }
+
+
+    & .active {
+        background-color: white;
+        color: #333;
+    }
+
+
+
+}
+
+/* User Details */
+.userDetails {
+
+    & p:first-child {
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    & .icon {
+        color: green;
+    }
+
+    & p {
+        margin: 10ox;
+    }
+}
+
+/* //Modal CSS */
+.modalOverlay {
+    position: absolute;
+    top: 20%;
+
+}
+
+.closeModal {
+    background-color: #282828;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+
+}
+
+
+.modalContent {
+    background-color: #F0F5F3;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    & textarea {
+        width: 100%;
+        resize: none;
+        height: 100px;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 0;
+    }
+
+    & p {
+        font-size: 0.8rem;
+        margin: 10px 0;
+    }
+
+    & textarea:focus {
+        outline: none
+    }
+
+    ;
+}
+
+.instructionLabel {
+    color: #898989;
+    text-decoration: underline;
+}
+
+.totalPricing {
+    background-color: #fff48f8e;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 1rem;
+
+    & p {
+        font-size: 1.2rem;
+    }
+}
+
+.modalActions {
+    display: flex;
+    gap: 1rem;
+    margin: 0.8rem 0;
+
+    & button {
+        padding: 10px 20px;
+    }
+}
+
+.blurred {
+    filter: blur(4px);
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+
+.swiperToOrder {
+    margin: 2rem 0;
+}
