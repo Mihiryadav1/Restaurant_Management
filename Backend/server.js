@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 app.get("/api/tables", getAllTables);
 
 //Create Table
-app.post("/api/tables", createTable);
+app.post("api/tables", createTable);
 
 //Delete Table
 app.delete("/api/tables/:id", deleteTable);
