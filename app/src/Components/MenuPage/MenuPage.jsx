@@ -35,6 +35,7 @@ const MenuPage = () => {
   const [offSet, setoffSet] = useState(0);
   const [limit, setLimit] = useState(6);
   const [Loading, setLoading] = useState(false);
+  const [scroll, setScroll] = useState(0)
   const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart);
@@ -75,17 +76,46 @@ const MenuPage = () => {
         },
       });
       const menuItems = menu.data.items;
-      setMenus(menuItems);
+      console.log(menuItems, 'MenuItems')
+      setHasMore(menu.data.hasMore)
+      setMenus(prev => [...prev, ...menuItems]);
       setLoading(false)
     } catch (err) {
       console.error("Category fetch failed:", err);
     }
   };
-
+  //get Scroll position
+  const handleScroll = (e) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.target;
+    const position = scrollTop + clientHeight;
+    if (position >= scrollHeight - 5) { // near bottom
+      setScroll(100);
+    }
+  };
+  // 1️⃣ Reset everything when category changes
   useEffect(() => {
+    setoffSet(0);
     setMenus([]);
-    handleMenuChange();
+    setScroll(0);
+    setHasMore(true);
   }, [selectedCategory]);
+
+  // 2️⃣ Detect scroll bottom -> load more
+  useEffect(() => {
+    if (scroll === 100 && hasMore && menus.length > 0) {
+      setoffSet(prev => prev + menus.length);
+      setScroll(100)
+    }
+
+  }, [scroll]);
+
+  // 3️⃣ Fetch data when category or offset changes
+  useEffect(() => {
+    if (!selectedCategory) return;       // Safety
+    handleMenuChange();                  // Fetch items
+  }, [selectedCategory, offSet]);
+
+
 
   return (
     <>
@@ -116,7 +146,7 @@ const MenuPage = () => {
         />
       </div>
 
-      <div className={styles["menuContainer"]}>
+      <div className={styles["menuContainer"]} onScroll={handleScroll}>
         {!Loading ? (
           menus.map((item, index) => (
             <div className={styles["menu-card"]} key={item._id + index}>

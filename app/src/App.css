@@ -11,6 +11,7 @@
   border-radius: 1rem;
   width: 100%;
   max-width: 430px;
+  min-width: 430px;
   min-height: 90vh;
   max-height: 100vh;
   margin: 0 auto; /* center horizontally */
