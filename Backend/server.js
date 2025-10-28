@@ -34,6 +34,9 @@ connectDB();
 app.use(cors());
 
 //Routes
+app.get("/", (req, res) => {
+  res.send("🚀 Backend server is running!");
+});
 //Get all Tables
 app.get("/api/tables", getAllTables);
 
