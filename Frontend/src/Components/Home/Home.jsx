@@ -25,12 +25,10 @@ const Home = () => {
 
   const getTotalChef = async () => {
     try {
-      const response = await fetch('api/chefs').then(res => res.json()).then(data => {
-        // console.log(data, 'Chef')
-        setChefStats(data.sort((a, b) => b.currentOrders - a.currentOrders));
-
+      await axios(`${import.meta.env.VITE_LOCAL_URL}/api/chefs`).then(res => {
+        setChefStats(res.data.sort((a, b) => b.currentOrders - a.currentOrders));
+        setChefCount(res.data.length);
         console.log("Total Chefs:", data.length);
-        setChefCount(data.length);
       })
     }
     catch (err) {
@@ -40,8 +38,9 @@ const Home = () => {
   // Total Orders
   const getTotalOrders = async () => {
     try {
-      const response = await fetch('api/orders').then(res => res.json()).then(data => {
-        const orders = data.orders;
+      const response = await axios(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
+        // console.log(res.data.orders, 'Order')
+        const orders = res.data.orders;
         setOrderCount(orders.length);
       })
     }
@@ -52,7 +51,7 @@ const Home = () => {
   // Pie Chart Data
   const getOrderType = async () => {
     try {
-      const response = await fetch('api/orders');
+      const response = await fetch(`${import.meta.env.VITE_LOCAL_URL}/api/orders`);
       const data = await response.json();
       const orders = data.orders;
 
@@ -79,7 +78,7 @@ const Home = () => {
   //Get Reserved Table
   const getReservedTables = async () => {
     try {
-      const response = await fetch('api/tables').then(data => data.json()).then(data => {
+      const response = await fetch(`${import.meta.env.VITE_LOCAL_URL}/api/tables`).then(data => data.json()).then(data => {
         console.log(data.tables)
         setTables(data.tables);
       });
@@ -91,7 +90,7 @@ const Home = () => {
   //Get total Revenue
   const getTotalRevenue = async () => {
     try {
-      const response = await axios('api/revenue').then(data => {
+      const response = await axios(`${import.meta.env.VITE_LOCAL_URL}/api/revenue`).then(data => {
         setRevenue(data.data.totalRevenue)
       })
     } catch (err) {
@@ -101,7 +100,7 @@ const Home = () => {
   // Get total Clients
   const getTotalClients = async () => {
     try {
-      await axios(`/api/users`).then(res => {
+      await axios(`${import.meta.env.VITE_LOCAL_URL}/api/users`).then(res => {
         const users = res.data.users;
         setClientCount(users.length)
         // console.log(data,'Users')
@@ -157,31 +156,25 @@ const Home = () => {
         >
           <Card name="total chef" count={chefCount} icon={<GiChefToque />} />
         </div>
-        <div className={styles['card']}>
-          <div
-            className={`${styles['card']} ${!filterText || "total revenue".toLowerCase().includes(filterText) ? "" : styles['blurred']
-              }`}
-          >
-            <Card name="total revenue" count={revenue} icon={<FaRupeeSign />} />
+        <div
+          className={`${styles['card']} ${!filterText || "total revenue".toLowerCase().includes(filterText) ? "" : styles['blurred']
+            }`}
+        >
+          <Card name="total revenue" count={revenue} icon={<FaRupeeSign />} />
 
-          </div>
         </div>
-        <div className={styles['card']}>
-          <div
-            className={`${styles['card']} ${!filterText || "total orders".toLowerCase().includes(filterText) ? "" : styles['blurred']
-              }`}
-          >
-            <Card name="total orders" count={orderCount} />
+        <div
+          className={`${styles['card']} ${!filterText || "total orders".toLowerCase().includes(filterText) ? "" : styles['blurred']
+            }`}
+        >
+          <Card name="total orders" count={orderCount} />
 
-          </div>
         </div>
-        <div className={styles['card']}>
-          <div
-            className={`${styles['card']} ${!filterText || "total clients".toLowerCase().includes(filterText) ? "" : styles['blurred']
-              }`}
-          >
-            <Card name="total clients" icon={<IoPeople />} count={clientCount} />
-          </div>
+        <div
+          className={`${styles['card']} ${!filterText || "total clients".toLowerCase().includes(filterText) ? "" : styles['blurred']
+            }`}
+        >
+          <Card name="total clients" icon={<IoPeople />} count={clientCount} />
         </div>
       </div>
 
