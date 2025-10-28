@@ -73,4 +73,7 @@ app.get("/api/users", getUsers);
 app.post("/api/users", userController);
 
 //Server
-app.listen(process.env.PORT, () => console.log("Server running on port 5000"));
+app.listen(process.env.PORT, (req, res) => {
+  console.log("Server running on port 5000");
+  res.send("Server is running");
+});
