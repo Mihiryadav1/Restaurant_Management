@@ -3,13 +3,17 @@ import styles from './Loading.module.css'
 import Lottie from "lottie-react";
 const Loading = () => {
     return (
+
         <div className={styles['loadingContainer']}>
+            {/* <div className={styles["lottie"]}> */}
             <Lottie
                 path="/loading.json"
                 loop
                 autoplay
-                style={{ width: 500, height: 500 }}
+                width={430}
+                height={430}
             />
+            {/* </div> */}
         </div>
     )
 }

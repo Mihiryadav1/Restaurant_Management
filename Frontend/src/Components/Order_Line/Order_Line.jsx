@@ -94,30 +94,36 @@ const Order_Line = () => {
           >
             <h3>#{order.orderId}</h3>
             <p>
-              <strong>Table:</strong> {order.tableNumber || '—'}
+              <p className={styles["wrapper"]}>
+                <strong>Table:</strong> {order.tableNumber || '—'}
+                <p>
+                  <strong>Type:</strong> {order.type}
+                </p>
+                <b>Order List</b>
+                <ul className={styles['itemList']}>
+                  {order.items.map((item, i) => {
+                    const matched = menuItems.find(
+                      (menuItem) => menuItem._id === item.itemId
+                    );
+                    return (
+                      <li key={i}>
+                        {item.quantity} × {matched ? matched.name : 'Unknown Item'}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </p>
             </p>
-            <p>
-              <strong>Type:</strong> {order.type}
-            </p>
-            <ul className={styles['itemList']}>
-              {order.items.map((item, i) => {
-                const matched = menuItems.find(
-                  (menuItem) => menuItem._id === item.itemId
-                );
-                return (
-                  <li key={i}>
-                    {item.quantity} × {matched ? matched.name : 'Unknown Item'}
-                  </li>
-                );
-              })}
-            </ul>
-            <p>
-              <strong>Status:</strong> {effectiveStatus}
-            </p>
+            <div className={styles["wrapper"]}>
+              <p style={{ color: effectiveStatus === "done" ? "green" : "orange" }}>
+                <strong>Status:</strong> {effectiveStatus}
+              </p>
+            </div>
+
           </div>
         );
       })}
-    </div>
+    </div >
   );
 };
 

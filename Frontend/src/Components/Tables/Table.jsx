@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Table.module.css'
 import axios from 'axios'
 import { MdOutlineDeleteSweep } from "react-icons/md";
+import { FaChair } from "react-icons/fa6";
 
 const Table = () => {
     const [tableName, setTableName] = React.useState("Table");
@@ -9,10 +10,10 @@ const Table = () => {
     const [showPopup, setShowPopup] = React.useState(false);
     const [tables, setTables] = useState([])
     const fetchTables = async () => {
-        const response = await fetch(`${import.meta.env.VITE_LOCAL_URL}/api/tables`).then(res => res.json()).then(data => {
-            // console.log(data.tables)
-            setTables(data.tables)
-            setTableName(data.tables.name)
+        await axios(`${import.meta.env.VITE_LOCAL_URL}/api/tables`).then(res => {
+            setTables(res.data.tables)
+            console.log(res.data.tables)
+            setTableName(res.data.tables.name)
         })
     }
     const createTable = async () => {
@@ -62,9 +63,19 @@ const Table = () => {
                         return (<>
                             <div className={styles['table-block']} key={item._id}>
                                 <p>Table {item.name}</p>
-                                <button onClick={() => {
-                                    deleteTable(item._id)
-                                }}><MdOutlineDeleteSweep /></button>
+                                <div className={styles["tableDetails"]}>
+                                    <p onClick={() => {
+                                        deleteTable(item._id)
+                                    }}>
+                                        <span className='icon'>
+                                            <MdOutlineDeleteSweep />
+                                        </span>
+                                    </p>
+                                    <p style={{ display: "flex", gap: "10px" }}>
+                                        <span><FaChair /></span>
+                                        <span>{item.size} </span>
+                                    </p>
+                                </div>
                             </div>
                         </>)
                     })
@@ -84,12 +95,14 @@ const Table = () => {
                                 max={30}
                                 onChange={(e) => setTableName(e.target.value)}
                             />
-                            <select value={chairCount} onChange={(e) => setChairCount(Number(e.target.value))}>
-                                {[2, 4, 6, 8].map((count) => (
-                                    <option key={count} value={count}>{count} chairs</option>
-                                ))}
-                            </select>
-                            <button onClick={createTable}>Create</button>
+                            <div className={styles["popUpActions"]}>
+                                <select value={chairCount} onChange={(e) => setChairCount(Number(e.target.value))}>
+                                    {[2, 4, 6, 8].map((count) => (
+                                        <option key={count} value={count}>{count} chairs</option>
+                                    ))}
+                                </select>
+                                <button onClick={createTable}>Create</button>
+                            </div>
                         </div>) : <></>
                     }
                 </div>

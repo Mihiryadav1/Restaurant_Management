@@ -16,3 +16,12 @@ input:focus {
 li {
   list-style: none
 }
+
+.icon {
+  font-size: 1.4rem;
+
+}
+
+button {
+  border: 0;
+}

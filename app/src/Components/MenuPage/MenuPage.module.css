@@ -2,6 +2,7 @@
     display: grid;
     column-gap: 10px;
     row-gap: 10px;
+    min-height: 60vh;
     max-height: 60vh;
     margin: 1rem 0;
     overflow: auto;

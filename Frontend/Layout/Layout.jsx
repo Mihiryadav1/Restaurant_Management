@@ -6,8 +6,10 @@ import styles from '../Layout/Layout.module.css';
 function Layout() {
   return (
     <div className={styles['grid-container']}>
-      <Sidebar />
-      
+      <p className={styles["sidebar"]}>
+        
+        <Sidebar />
+      </p>
       <main className={styles['main']}>
         <Outlet />
       </main>

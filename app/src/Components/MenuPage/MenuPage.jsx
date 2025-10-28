@@ -15,6 +15,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { RiDrinks2Fill } from "react-icons/ri";
+import LoadingPage from '../Loading/LoadingPage'
 
 const MenuPage = () => {
   const categories = [
@@ -63,7 +64,9 @@ const MenuPage = () => {
   };
 
   const handleMenuChange = async () => {
+
     try {
+      setLoading(true);
       const menu = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/menu`, {
         params: {
           category: selectedCategory,
@@ -73,6 +76,7 @@ const MenuPage = () => {
       });
       const menuItems = menu.data.items;
       setMenus(menuItems);
+      setLoading(false)
     } catch (err) {
       console.error("Category fetch failed:", err);
     }
@@ -113,7 +117,7 @@ const MenuPage = () => {
       </div>
 
       <div className={styles["menuContainer"]}>
-        {menus ? (
+        {!Loading ? (
           menus.map((item, index) => (
             <div className={styles["menu-card"]} key={item._id + index}>
               <div className={styles["menu-details"]}>
@@ -159,7 +163,7 @@ const MenuPage = () => {
             </div>
           ))
         ) : (
-          <Loading />
+          <LoadingPage />
         )}
       </div>
 

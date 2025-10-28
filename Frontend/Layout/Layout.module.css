@@ -1,11 +1,16 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 8vw auto;
+    grid-template-columns: 4vw auto;
     grid-template-rows: 5vh 1fr;
     grid-template-areas: "sidebar main"
         "sidebar main"
         "sidebar main";
+    max-height: 100vh;
 
+}
+
+.sidebar {
+    grid-area: sidebar;
 }
 
 .main {

@@ -1,6 +1,4 @@
-.home-container {
-    padding: 1.5rem;
-}
+ 
 
 .total-container {
     display: grid;
@@ -24,6 +22,7 @@ header {
         outline: none;
         border: 0;
         background-color: white;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
 
     & input:focus {

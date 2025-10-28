@@ -7,14 +7,15 @@
  
 
 #root {
-  /* background-color: lightblue; */
   border: 1px solid gray;
   border-radius: 1rem;
-  min-width: 430px;
+  width: 100%;
   max-width: 430px;
   min-height: 90vh;
   max-height: 100vh;
+  margin: 0 auto; /* center horizontally */
   box-sizing: border-box;
+  overflow: hidden; /* prevent scrollbars */
 }
 
 .appWrapper {

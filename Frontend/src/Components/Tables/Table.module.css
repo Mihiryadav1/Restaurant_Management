@@ -1,5 +1,4 @@
  .table-grid {
-     /* background-color: red; */
      display: grid;
      row-gap: 10px;
      column-gap: 10px;
@@ -10,27 +9,64 @@
      padding: 1rem;
      max-width: 120px;
      border-radius: 0.5rem;
+     display: flex;
+     gap: 1.4rem;
+     flex-direction: column;
+     justify-content: space-between;
      background-color: #F0F5F3;
+
+     & p:first-child {
+         text-align: center;
+         font-size: 1.4rem;
+         font-weight: 700;
+     }
+ }
+
+ .tableDetails {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+
+
+     & button {
+         background-color: transparent;
+     }
  }
 
  .addTableBtn {
      background-color: transparent;
      padding: 1rem;
+     border: 1px solid black;
  }
 
 
  .popup {
      max-width: 200px;
      position: absolute;
-     background-color: white;
-     height: 250px;
+     background-color: rgb(229, 229, 229);
+     height: 150px;
      border: 1px solid black;
+     padding: 10px;
      border-radius: 1rem;
+     top: 10%;
 
      & input {
-         background: transparent;
-         padding: 0 1rem;
-         border-bottom: 1px solid black;
+         background: white;
+         border-radius: 10px;
+         padding: 10px;
+         margin-bottom: 1rem;
+     }
+ }
+
+ .popUpActions {
+     display: flex;
+     justify-content: space-between;
+
+     & select,
+     button {
+         outline: none;
+         padding: 10px;
+         border-radius: 10px;
      }
  }
 
