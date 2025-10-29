@@ -38,9 +38,9 @@ const Home = () => {
   // Total Orders
   const getTotalOrders = async () => {
     try {
-      const response = await axios(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
-        // console.log(res.data.orders, 'Order')
-        const orders = res.data.orders;
+      await axios(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
+        console.log(res, 'Order')
+        const orders = res.data.enrichedOrders;
         setOrderCount(orders.length);
       })
     }
