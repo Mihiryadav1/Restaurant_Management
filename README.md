@@ -43,14 +43,14 @@ It supports **dine-in** and **takeaway** workflows, dynamic menu browsing, cart 
 - cd Restaurant-Management
 
 ### 2. Install Necessary Dependancies for each Folder
+## Backend
 - cd Backend
 - npm install
 - Create .env file in Backend folder with env variables as follows
 - PORT=5000
 - MONGO_URL=your_mongodb_connection_string
 - Start the backend with command - nodemon server.js
-
-### 3.Commands
+- 
 ## Frontend
 - cd Frontend
 - npm install
@@ -64,6 +64,7 @@ It supports **dine-in** and **takeaway** workflows, dynamic menu browsing, cart 
 - Create .env in app folder 
 - VITE_LOCAL_URL= your backend URL
 - Start the project with the command npm run dev
+
 
 
 
