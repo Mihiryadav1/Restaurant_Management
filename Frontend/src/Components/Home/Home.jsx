@@ -28,7 +28,7 @@ const Home = () => {
       await axios(`${import.meta.env.VITE_LOCAL_URL}/api/chefs`).then(res => {
         setChefStats(res.data.sort((a, b) => b.currentOrders - a.currentOrders));
         setChefCount(res.data.length);
-        console.log("Total Chefs:", data.length);
+        // console.log("Total Chefs:", data.length);
       })
     }
     catch (err) {
@@ -39,7 +39,7 @@ const Home = () => {
   const getTotalOrders = async () => {
     try {
       await axios(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
-        console.log(res, 'Order')
+        // console.log(res, 'Order')
         const orders = res.data.enrichedOrders;
         setOrderCount(orders.length);
       })
@@ -51,25 +51,28 @@ const Home = () => {
   // Pie Chart Data
   const getOrderType = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_LOCAL_URL}/api/orders`);
-      const data = await response.json();
-      const orders = data.orders;
-
-      let dineIn = 0;
-      let takeAway = 0;
-      let served = 0;
-
-      orders.forEach(order => {
-        if (order.type === 'dine-in') dineIn++;
-        if (order.type === 'takeaway') takeAway++;
-        if (order.status === 'done') served++;
+      const response = await axios(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res=>{
+        // console.log(res,'ORR')
+        const orders = res.data.enrichedOrders;
+  
+        let dineIn = 0;
+        let takeAway = 0;
+        let served = 0;
+  
+        orders.forEach(order => {
+          if (order.type === 'dine-in') dineIn++;
+          if (order.type === 'takeaway') takeAway++;
+          if (order.status === 'done') served++;
+        });
+  
+        setOrderTypeData([
+          { id: 0, value: dineIn, label: 'Dine-In' },
+          { id: 1, value: takeAway, label: 'Takeaway' },
+          { id: 2, value: served, label: 'Served' }
+        ]);
       });
-
-      setOrderTypeData([
-        { id: 0, value: dineIn, label: 'Dine-In' },
-        { id: 1, value: takeAway, label: 'Takeaway' },
-        { id: 2, value: served, label: 'Served' }
-      ]);
+     
+      
     } catch (err) {
       console.error("Error fetching order types:", err);
     }
@@ -79,7 +82,7 @@ const Home = () => {
   const getReservedTables = async () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_LOCAL_URL}/api/tables`).then(data => data.json()).then(data => {
-        console.log(data.tables)
+        // console.log(data.tables)
         setTables(data.tables);
       });
 
