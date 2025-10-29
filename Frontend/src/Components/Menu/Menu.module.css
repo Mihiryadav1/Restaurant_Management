@@ -1,15 +1,22 @@
 .menu-container {
     display: grid;
-    column-gap: 10px;
+    column-gap: 1rem;
+    row-gap: 1rem;
     max-height: 95vh;
     overflow-x: auto;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
 }
 
 .menu-card {
     padding: 1rem;
-    border: 1px solid black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+
 }
 
 .menu-img {
