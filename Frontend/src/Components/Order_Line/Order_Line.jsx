@@ -18,9 +18,9 @@ const Order_Line = () => {
   // Fetch all orders
   const getAllOrders = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
-        console.log(res.data, 'res')
-        setOrderCard(res.data.orders);
+      await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/orders`).then(res => {
+        console.log(res.data.enrichedOrders, 'res')
+        setOrderCard(res.data.enrichedOrders);
       });
     } catch (err) {
       console.error('Failed to fetch orders', err);
