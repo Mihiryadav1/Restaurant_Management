@@ -19,16 +19,17 @@ const sampleMenu = [
     averagePreparationTime: 2,
     category: "Pizza",
     stock: 40,
-    //  image:""
+    image:
+      "https://www.realsimple.com/thmb/TRWF9nZ1I48Nxd2QMzfDVMUZjtg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Sicilian-Pizza-with-Shave-Delicata-Salami-Pecorino-Recipe-7825d3b570bc40929e57ef287050c741.jpg",
   },
   {
-    name: "Marinara",
+    name: "margherita",
     description: "Tomato, garlic, oregano",
     price: 200,
     averagePreparationTime: 12,
     category: "Pizza",
     stock: 60,
-    //  image:""
+    image: "https://cdn.uengage.io/uploads/5/image-748189-1752218754.jpeg",
   },
   {
     name: "Pepperoni",
@@ -37,7 +38,8 @@ const sampleMenu = [
     averagePreparationTime: 20,
     category: "Pizza",
     stock: 30,
-    //  image:""
+    image:
+      "https://www.allrecipes.com/thmb/iXKYAl17eIEnvhLtb4WxM7wKqTc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/240376-homemade-pepperoni-pizza-Beauty-3x4-1-6ae54059c23348b3b9a703b6a3067a44.jpg",
   },
   {
     name: "Farmhouse",
@@ -46,7 +48,7 @@ const sampleMenu = [
     averagePreparationTime: 16,
     category: "Pizza",
     stock: 45,
-    //  image:""
+    image: "https://www.dominos.co.in//files/items/_1346164951.jpg",
   },
   {
     name: "Mexican Green Wave",
@@ -55,7 +57,7 @@ const sampleMenu = [
     averagePreparationTime: 17,
     category: "Pizza",
     stock: 35,
-    //  image:""
+    image: "https://cdn.uengage.io/uploads/5/image-342266-1715596630.png",
   },
   {
     name: "Cheese Burst",
@@ -64,7 +66,7 @@ const sampleMenu = [
     averagePreparationTime: 14,
     category: "Pizza",
     stock: 50,
-    //  image:""
+    image: "https://www.dominos.co.in//files/items/_1346164951.jpg",
   },
   {
     name: "Tandoori Paneer",
@@ -73,7 +75,8 @@ const sampleMenu = [
     averagePreparationTime: 18,
     category: "Pizza",
     stock: 40,
-    //  image:""
+    image:
+      "https://content.jdmagicbox.com/comp/pune/d7/020pxx20.xx20.121207123930.b7d7/catalogue/hot-pizza-rasta-peth-pune-pizza-outlets-jaih18igmz.jpg",
   },
 
   // 🍔 Burgers (6)
@@ -84,7 +87,8 @@ const sampleMenu = [
     averagePreparationTime: 10,
     category: "Burger",
     stock: 40,
-    //  image:""
+    image:
+      "https://www.howsweeteats.com/wp-content/uploads/2011/04/bbqburgers-6.jpg",
   },
   {
     name: "Paneer Melt Burger",
@@ -93,7 +97,8 @@ const sampleMenu = [
     averagePreparationTime: 12,
     category: "Burger",
     stock: 35,
-    //  image:""
+    image:
+      "https://tastedrecipes.com/wp-content/uploads/2020/11/paneer-burger-5.jpg",
   },
   {
     name: "Volcano Burger",
@@ -102,7 +107,8 @@ const sampleMenu = [
     averagePreparationTime: 12,
     category: "Burger",
     stock: 35,
-    //  image:""
+    image:
+      "https://xplorio.com/xplorio/content/44602/shutterstock_337714676_e1464126862548_1512631535.jpg?width=960&height=440",
   },
   {
     name: "Chicken BBQ Burger",
@@ -111,7 +117,8 @@ const sampleMenu = [
     averagePreparationTime: 15,
     category: "Burger",
     stock: 30,
-    //  image:""
+    image:
+      "https://www.howsweeteats.com/wp-content/uploads/2011/04/bbqburgers-6.jpg",
   },
   {
     name: "Double Patty Burger",
@@ -120,7 +127,8 @@ const sampleMenu = [
     averagePreparationTime: 16,
     category: "Burger",
     stock: 25,
-    //  image:""
+    image:
+      "https://indifoodbev.com/wp-content/uploads/2020/08/McVeggie-Burger-Double-Patty.jpg",
   },
   {
     name: "Spicy Aloo Tikki Burger",
@@ -149,7 +157,8 @@ const sampleMenu = [
     averagePreparationTime: 14,
     category: "Pasta",
     stock: 40,
-    //  image:""
+    image:
+      "https://www.allrecipes.com/thmb/gTibTRJ8MW87L0jMhAvXPjIDD94=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/19402-quick-and-easy-alfredo-sauce-DDMFS-4x3-17abb2055c714807944172db9172b045.jpg",
   },
   {
     name: "Arrabbiata Pasta",
@@ -158,7 +167,8 @@ const sampleMenu = [
     averagePreparationTime: 12,
     category: "Pasta",
     stock: 45,
-    //  image:""
+    image:
+      "https://www.giallozafferano.com/images/260-26061/Penne-all-arrabbiata_1200x800.jpg",
   },
   {
     name: "Pesto Pasta",
@@ -167,7 +177,8 @@ const sampleMenu = [
     averagePreparationTime: 13,
     category: "Pasta",
     stock: 35,
-    //  image:""
+    image:
+      "https://www.allrecipes.com/thmb/ALYcbI-A_YYn5jiboWYPE2rt310=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-46982-pesto-pasta-with-chicken-DDMFS-4x3-5e043df9d5174cf4ac53612ee0f5b56e.jpg",
   },
   {
     name: "Mac & Cheese",
@@ -176,7 +187,8 @@ const sampleMenu = [
     averagePreparationTime: 11,
     category: "Pasta",
     stock: 50,
-    //  image:""
+    image:
+      "https://images.services.kitchenstories.io/FQPoYXqopSF8apn6ZCB6uEaXVyk=/3840x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R3072-final-photo-2.jpg",
   },
   {
     name: "Lasagna",
@@ -185,7 +197,7 @@ const sampleMenu = [
     averagePreparationTime: 20,
     category: "Pasta",
     stock: 30,
-    //  image:""
+    image: "https://delishglobe.com/wp-content/uploads/2024/09/Lasagna.png",
   },
   {
     name: "Spaghetti Bolognese",
@@ -194,7 +206,8 @@ const sampleMenu = [
     averagePreparationTime: 18,
     category: "Pasta",
     stock: 25,
-    //  image:""
+    image:
+      "https://www.inspiredtaste.net/wp-content/uploads/2025/02/Pasta-Carbonara-Recipe-1.jpg",
   },
 
   // 🥗 Salads (4)
@@ -205,7 +218,8 @@ const sampleMenu = [
     averagePreparationTime: 8,
     category: "Salad",
     stock: 50,
-    //  image:""
+    image:
+      "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2019/04/Cobb-Salad-main.jpg",
   },
   {
     name: "Caesar Salad",
@@ -223,7 +237,8 @@ const sampleMenu = [
     averagePreparationTime: 7,
     category: "Salad",
     stock: 60,
-    //  image:""
+    image:
+      "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2019/04/Cobb-Salad-main.jpg",
   },
   {
     name: "Sprout Salad",
@@ -232,7 +247,8 @@ const sampleMenu = [
     averagePreparationTime: 6,
     category: "Salad",
     stock: 70,
-    //  image:""
+    image:
+      "https://cdn.prod.website-files.com/64931d2aee18510b47f4bb1f/667b1f0128f821612aeb2c35_Sprouted-Moong-Salad-Recipe-Cover-Image.jpg",
   },
 
   // 🥤 Beverages (6)
@@ -243,7 +259,8 @@ const sampleMenu = [
     averagePreparationTime: 5,
     category: "Beverage",
     stock: 100,
-    //  image:"",
+    image:
+      "https://budleaf.com/wp-content/uploads/2023/04/shutterstock_2175082285-1568x1045.jpg",
   },
   {
     name: "Cold Coffee",
@@ -252,7 +269,8 @@ const sampleMenu = [
     averagePreparationTime: 6,
     category: "Beverage",
     stock: 80,
-    //  image:""
+    image:
+      "https://media.assettype.com/freepressjournal/2023-01/b35364ef-cc4a-4401-93b1-4fa180b19e3c/ghnb.jpg",
   },
   {
     name: "Masala Soda",
@@ -270,7 +288,8 @@ const sampleMenu = [
     averagePreparationTime: 7,
     category: "Beverage",
     stock: 60,
-    //  image:""
+    image:
+      "https://media.assettype.com/freepressjournal/2023-01/b35364ef-cc4a-4401-93b1-4fa180b19e3c/ghnb.jpg",
   },
   {
     name: "Strawberry Smoothie",
@@ -279,16 +298,18 @@ const sampleMenu = [
     averagePreparationTime: 8,
     category: "Beverage",
     stock: 50,
-    //  image:""
+    image:
+      "https://www.thespruceeats.com/thmb/DTkCRqNWiK8HmlAANacYhMLhN9E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/strawberry-breakfast-smoothie-recipe-2097149-hero-02-5c1d4b2a46e0fb00014bf2ec.jpg",
   },
   {
-    name: "Water Bottle",
+    name: "Sparkling Water",
     description: "500ml mineral water",
     price: 20,
     averagePreparationTime: 1,
     category: "Beverage",
     stock: 200,
-    //  image:"",
+    image:
+      "https://cdn.shopify.com/s/files/1/0561/7578/8055/files/106_2048x2048.png?v=1727291755",
   },
 
   // 🍰 Desserts (6)
@@ -299,7 +320,8 @@ const sampleMenu = [
     averagePreparationTime: 8,
     category: "Dessert",
     stock: 40,
-    //  image:""
+    image:
+      "https://recipesblob.oetker.in/assets/9a89b75f976642dcab8ae407e2f4344e/1272x764/chocolate-brownie.webp",
   },
   {
     name: "Gulab Jamun",
@@ -308,7 +330,8 @@ const sampleMenu = [
     averagePreparationTime: 6,
     category: "Dessert",
     stock: 60,
-    //  image:""
+    image:
+      "https://aartimadan.com/wp-content/uploads/2020/11/milk-powder-gulab-jamuns.jpg",
   },
   {
     name: "Ice Cream",
@@ -317,7 +340,8 @@ const sampleMenu = [
     averagePreparationTime: 3,
     category: "Dessert",
     stock: 100,
-    //  image:"",
+    image:
+      "https://static.toiimg.com/thumb/msid-112315676,width-1280,height-720,resizemode-4/112315676.jpg",
   },
   {
     name: "Rasmalai",
@@ -326,7 +350,8 @@ const sampleMenu = [
     averagePreparationTime: 5,
     category: "Dessert",
     stock: 50,
-    //  image:""
+    image:
+      "https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe-500x500.jpg",
   },
   {
     name: "Chocolate Mousse",
@@ -355,7 +380,8 @@ const sampleMenu = [
     averagePreparationTime: 5,
     category: "Bread",
     stock: 100,
-    //  image:"",
+    image:
+      "https://allwaysdelicious.com/wp-content/uploads/2022/04/garlic-butter-naan-4-1024x682.jpg",
   },
 
   {
@@ -365,7 +391,8 @@ const sampleMenu = [
     averagePreparationTime: 6,
     category: "Bread",
     stock: 80,
-    //  image:""
+    image:
+      "https://andreasnotebook.com/wp-content/uploads/2023/05/best-easy-naan-recipe-1.jpg",
   },
   {
     name: "Chees Naan",
@@ -374,7 +401,8 @@ const sampleMenu = [
     averagePreparationTime: 6,
     category: "Bread",
     stock: 80,
-    //  image:""
+    image:
+      "https://signatureconcoctions.com/wp-content/uploads/2025/02/Instant-Cottage-Cheese-Naan-5-scaled.jpg",
   },
   {
     name: "Tandoori Roti",
@@ -383,7 +411,7 @@ const sampleMenu = [
     averagePreparationTime: 4,
     category: "Bread",
     stock: 90,
-    //  image:""
+    image: "https://static.toiimg.com/thumb/75542650.cms?width=1200&height=900",
   },
   {
     name: "Lachha Paratha",
