@@ -42,30 +42,29 @@ It supports **dine-in** and **takeaway** workflows, dynamic menu browsing, cart 
 - git clone https://github.com/Mihiryadav1/Restaurant_Management.git
 - cd Restaurant-Management
 
-## Install Necessary Dependancies for each Folder
--cd Backend
--npm install
--Create .env file in Backend folder with env variables as 
+### 2. Install Necessary Dependancies for each Folder
+- cd Backend
+- npm install
+- Create .env file in Backend folder with env variables as follows
+- PORT=5000
+- MONGO_URL=your_mongodb_connection_string
+- Start the backend with command - nodemon server.js
 
-PORT=5000
-MONGO_URL=your_mongodb_connection_string
-Start the backend with command - nodemon server.js
+### 3.Commands
+## Frontend
+- cd Frontend
+- npm install
+- npm run dev
+- Create .env in Frontend folder  with env variables as follows
+- VITE_LOCAL_URL= your backend URL
 
+## app
+- cd app
+- npm install
+- Create .env in app folder 
+- VITE_LOCAL_URL= your backend URL
+- Start the project with the command npm run dev
 
-Frontend
--cd Frontend
--npm install
--npm run dev
-
-Create .env in Frontend folder 
-VITE_LOCAL_URL= your backend URL
-
-app
-cd app
-npm install
-Create .env in app folder 
-VITE_LOCAL_URL= your backend URL
-Start the project with the command npm run dev
 
 
 
