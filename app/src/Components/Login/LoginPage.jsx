@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginPage.module.css"
+import { ToastContainer, toast } from 'react-toastify';
+
 const LoginPage = () => {
+    const notify = () => toast("User Logged in Successfully!");
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -33,7 +36,13 @@ const LoginPage = () => {
                 contact: "",
 
             })
-            navigate('/menuPage')
+            toast.success("User Logged in Successfully!", {
+                position: "top-center",
+                autoClose: 2000,
+            });
+            setTimeout(() => {
+                navigate("/menuPage");
+            }, 2000);
         } catch (err) {
             console.error("Submit error:", err.response?.data || err.message);
         }
@@ -43,6 +52,7 @@ const LoginPage = () => {
 
     return (
         <div className={styles["login-container"]}>
+            <ToastContainer />
             <div className={styles["innerLogin"]}>
                 <h2>Enter Your Details</h2>
                 <form onSubmit={handleSubmit}>
@@ -86,7 +96,7 @@ const LoginPage = () => {
                         required
                     />
 
-                    <button type="submit">Order Now</button>
+                    <button type="submit" >Order Now</button>
                 </form>
             </div>
         </div>

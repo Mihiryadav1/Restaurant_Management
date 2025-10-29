@@ -7,6 +7,8 @@ import { RxCross1 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import { SwipeButton } from 'swipe-button';
 import { FaArrowRight } from "react-icons/fa6";
+import { ToastContainer, toast } from 'react-toastify';
+
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdAccessTimeFilled } from "react-icons/md";
 const OrderDetails = () => {
@@ -59,6 +61,10 @@ const OrderDetails = () => {
         try {
             const res = await axios.post(`${import.meta.env.VITE_LOCAL_URL}/api/orders`, payload);
             console.log("Order placed:", res);
+            toast.success("Order Created Successfully!", {
+                position: "top-center",
+                autoClose: 2000,
+            });
             setDeliveryTime(prev => prev + res.data.order.processingTime)
             setTimeout(() => {
                 navigate('/confirmation');
@@ -81,6 +87,7 @@ const OrderDetails = () => {
 
     return (
         <div className={styles['main']}>
+            <ToastContainer/>
             <div className={`${styles['orderContainer']} ${showModal ? styles.blurred : ''}`}>
                 <h2>Order Summary</h2>
                 <div className={styles['cartItems']}>
