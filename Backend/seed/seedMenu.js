@@ -96,6 +96,15 @@ const sampleMenu = [
     //  image:""
   },
   {
+    name: "Volcano Burger",
+    description: "Volcano Cheese, spicy mayo",
+    price: 150,
+    averagePreparationTime: 12,
+    category: "Burger",
+    stock: 35,
+    //  image:""
+  },
+  {
     name: "Chicken BBQ Burger",
     description: "BBQ chicken, onions, cheddar",
     price: 180,
@@ -348,10 +357,20 @@ const sampleMenu = [
     stock: 100,
     //  image:"",
   },
+
   {
     name: "Garlic Naan",
     description: "Naan topped with garlic",
     price: 50,
+    averagePreparationTime: 6,
+    category: "Bread",
+    stock: 80,
+    //  image:""
+  },
+  {
+    name: "Chees Naan",
+    description: "Naan topped with cheese",
+    price: 90,
     averagePreparationTime: 6,
     category: "Bread",
     stock: 80,

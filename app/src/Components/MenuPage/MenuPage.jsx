@@ -63,36 +63,32 @@ const MenuPage = () => {
       console.log(err);
     }
   };
-  
-  const handleMenuChange = async () => {
 
-    try {
-      setLoading(true);
-      const menu = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/menu`, {
-        params: {
-          category: selectedCategory,
-          limit,
-          offSet,
-        },
-      });
-      const menuItems = menu.data.items;
-      console.log(menuItems, 'MenuItems')
-      setHasMore(menu.data.hasMore)
-      setMenus(prev => [...prev, ...menuItems]);
-      setLoading(false)
-    } catch (err) {
-      console.error("Category fetch failed:", err);
-    }
-  };
+ 
   //get Scroll position
+
+  const handleMenuChange = async () => {
+    await axios.get(`${import.meta.env.VITE_LOCAL_URL}/api/menu`, {
+      params: {
+        category: selectedCategory,
+        limit,
+        offSet,
+      },
+    }).then(res => {
+      console.log(res, 'Res')
+      // setMenus(res.data.items)
+      setMenus(prev=>[...prev,...res.data.items])
+      
+    })
+  }
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     const position = scrollTop + clientHeight;
-    if (position >= scrollHeight - 5) { // near bottom
+    if (position >= scrollHeight - 5) {
       setScroll(100);
     }
   };
-  // 1️⃣ Reset everything when category changes
+  //  Reset everything when category changes
   useEffect(() => {
     setoffSet(0);
     setMenus([]);
@@ -100,7 +96,7 @@ const MenuPage = () => {
     setHasMore(true);
   }, [selectedCategory]);
 
-  // 2️⃣ Detect scroll bottom -> load more
+  // Detect scroll bottom -> load more
   useEffect(() => {
     if (scroll === 100 && hasMore && menus.length > 0) {
       setoffSet(prev => prev + menus.length);
@@ -109,10 +105,10 @@ const MenuPage = () => {
 
   }, [scroll]);
 
-  // 3️⃣ Fetch data when category or offset changes
+  // 3Fetch data when category or offset changes
   useEffect(() => {
-    if (!selectedCategory) return;       // Safety
-    handleMenuChange();                  // Fetch items
+    if (!selectedCategory) return;
+    handleMenuChange();
   }, [selectedCategory, offSet]);
 
 
