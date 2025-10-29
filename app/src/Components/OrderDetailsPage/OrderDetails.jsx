@@ -205,8 +205,7 @@ const OrderDetails = () => {
                                 <div className={styles['modalActions']}>
                                     <button onClick={() => setShowModal(false)}>Cancel</button>
                                     <button onClick={() => {
-                                        handleOrderSubmit()
-                                        navigate('/')
+                                        setShowModal(false)
                                     }
                                     }>Next</button>
                                 </div>
